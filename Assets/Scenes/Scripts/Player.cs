@@ -12,26 +12,26 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         Position = transform.position;
-        if (Input.GetKey("left") & Position.x > -10 )
+        if (Input.GetKey("left") & Position.x > -10)
             Position.x -= Time.deltaTime * Speed;
 
         if (Input.GetKey("right") & Position.x < 10)
             Position.x += Time.deltaTime * Speed;
         transform.position = Position;
 
-        Fire();       
+        Fire();
     }
 
     void Fire()
     {
-        if (Input.GetKeyDown("space") && Timer <= 0)
+        if (Input.GetKey("space") && Timer <= 0)
         {
             Instantiate(Bullet, new Vector3(Position.x, Position.y, Position.z + 2), Bullet.transform.rotation);
             Timer = 1;
