@@ -7,12 +7,13 @@ public class ScoreManager : MonoBehaviour
 {
     public TMP_Text HighScore;
     public string HighScoreText = "HIGH SCORE:";
+    int Total = 0;
 
-    public void UpdateHighScore(int Score)
+    public void UpdateHighScore(int score)
     {
-        Score += Score;
-        Debug.Log(Score);
-        HighScore.text = $"{HighScoreText} {Score}";
+        Total += score;
+        Debug.Log($"Score {Total}");
+        HighScore.text = $"{HighScoreText} {Total}";
         HighScore.color = Color.red;
     }
 }
