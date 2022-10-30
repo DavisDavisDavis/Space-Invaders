@@ -24,7 +24,7 @@ public class BulletCollision : MonoBehaviour
     {
         Destroy(gameObject);
 
-        if(other.GetComponent<Enemy>())
+        if(other.GetComponent<Enemy>() || other.GetComponent<Ufo>())
         {
             Enemy enemy = (Enemy)other.GetComponent<Enemy>();
             ScoreText.UpdateHighScore(enemy.Points);
