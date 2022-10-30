@@ -23,8 +23,13 @@ public class BulletCollision : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
-        Destroy(other.gameObject);
 
-        ScoreText.UpdateHighScore(200);
+        if(other.GetComponent<Enemy>())
+        {
+            Enemy enemy = (Enemy)other.GetComponent<Enemy>();
+            ScoreText.UpdateHighScore(enemy.Points);
+
+            Destroy(other.gameObject);
+        }
     }
 }

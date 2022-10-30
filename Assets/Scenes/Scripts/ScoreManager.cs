@@ -12,7 +12,6 @@ public class ScoreManager : MonoBehaviour
     public void UpdateHighScore(int score)
     {
         Total += score;
-        Debug.Log($"Score {Total}");
         HighScore.text = $"{HighScoreText} {Total}";
         HighScore.color = Color.red;
     }

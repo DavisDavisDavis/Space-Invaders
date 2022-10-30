@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     int Direction = 1;
     int xBound = 10;
 
+    public int Points = 200;
     public int Speed;
     public int Step;
     // Start is called before the first frame update
