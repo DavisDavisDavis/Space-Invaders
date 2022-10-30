@@ -14,7 +14,10 @@ public class Ufo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnRandomUfo", 1, 6);
+        if (Position.x > xBound || Position.x < -xBound)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -29,22 +32,5 @@ public class Ufo : MonoBehaviour
         }
 
         transform.position = Position;
-    }
-
-    void SpawnRandomUfo()
-    {
-        Debug.Log("UFOOO");
-        if (0 == Random.Range(0, 2))
-        {
-            Direction = -1;
-        }
-        else
-        {
-            Direction = 1;
-        }
-        int randomPoint = Direction * xBound;
-
-        Vector3 spawnPoint = new Vector3(randomPoint, 1.5f, 24);
-        Instantiate(gameObject, spawnPoint, gameObject.transform.rotation);
     }
 }
