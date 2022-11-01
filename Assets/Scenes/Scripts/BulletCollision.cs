@@ -22,14 +22,18 @@ public class BulletCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
-
-        if(other.GetComponent<Enemy>() || other.GetComponent<Ufo>())
+        if(other.GetComponent<Enemy>())
         {
             Enemy enemy = (Enemy)other.GetComponent<Enemy>();
             ScoreText.UpdateHighScore(enemy.Points);
-
-            Destroy(other.gameObject);
         }
+        if(other.GetComponent<Ufo>())
+        {
+            Ufo ufo = (Ufo)other.GetComponent<Ufo>();
+            ScoreText.UpdateHighScore(ufo.Points);
+        }
+
+        Destroy(other.gameObject);
+        Destroy(gameObject);
     }
 }
