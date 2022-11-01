@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    int xBound = 15;
+    int xBound = 18;
     public int Direction = 1;
 
     public GameObject Ufo;
@@ -25,7 +25,6 @@ public class SpawnManager : MonoBehaviour
     }
     void SpawnRandomUfo()
     {
-        Debug.Log("UFOOO");
         if (0 == Random.Range(0, 2))
         {
             Direction = -1;

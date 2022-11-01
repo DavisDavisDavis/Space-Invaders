@@ -5,7 +5,8 @@ using UnityEngine;
 public class Ufo : MonoBehaviour
 {
     Vector3 Position;
-    int xBound = 15;
+    int xBound = 20;
+    int xSpawnBound = 18;
     int Direction = 1;
 
     public int Points = 800;
@@ -14,9 +15,13 @@ public class Ufo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Position.x > xBound || Position.x < -xBound)
+        if(transform.position.x < -xSpawnBound + 1)
         {
-            Destroy(gameObject);
+            Direction = 1;
+        }
+        if (transform.position.x > xSpawnBound - 1)
+        {
+            Direction = -1;
         }
     }
 
