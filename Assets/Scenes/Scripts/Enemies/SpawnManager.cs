@@ -9,20 +9,40 @@ public class SpawnManager : MonoBehaviour
     public int Direction = 1;
 
     public GameObject Ufo;
+    public GameObject Enemy;
     public int Points = 800;
     public int Speed;
 
     // Start is called before the first frame update
     void Start()
     {
-       InvokeRepeating("SpawnRandomUfo", 1, 2);
+        SpawnEnemies(3, 3, new Vector3(-7, 2, 4));
+        InvokeRepeating("SpawnRandomUfo", 1, 2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+    void SpawnEnemies(int xNumberOfEnemies, int yNumberOfEnemies, Vector3 initalSpawnPosition)
+    {
+        
+        Vector3 nextSpawnPosition = initalSpawnPosition;
+
+        for (int y = 0; y < yNumberOfEnemies; y++)
+        {
+            for (int x = 0; x < xNumberOfEnemies; x++)
+            {
+                Instantiate(Enemy, nextSpawnPosition, Enemy.transform.rotation);
+                nextSpawnPosition.x += 2;
+            }
+            nextSpawnPosition.z += 2;
+            nextSpawnPosition.x = initalSpawnPosition.x;
+        }
+    }
+
     void SpawnRandomUfo()
     {
         if (0 == Random.Range(0, 2))
