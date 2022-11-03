@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     int xBound = 18;
 
     int xStep = 3;
-    int yStep = 2;
+    int yStep = -2;
     public int Direction = 1;
 
     public GameObject Ufo;
@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemies(3, 3, new Vector3(-7, 0, 4));
+        SpawnEnemies(3, 3, new Vector3(-9, 0, 4));
         InvokeRepeating("SpawnRandomUfo", 1, 2);
     }
 
@@ -45,6 +45,7 @@ public class SpawnManager : MonoBehaviour
                 Instantiate(thisEnemy, nextSpawnPosition, Enemy.transform.rotation);
                 nextSpawnPosition.x += xStep;
 
+                Debug.Log(id);
                 thisEnemy.id = id;
                 id++;
             }
@@ -52,6 +53,7 @@ public class SpawnManager : MonoBehaviour
             nextSpawnPosition.z += yStep;
             nextSpawnPosition.x = initalSpawnPosition.x;
         }
+        Debug.Log("Jobs done!");
     }
 
     void SpawnRandomUfo()
