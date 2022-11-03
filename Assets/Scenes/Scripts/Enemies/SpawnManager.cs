@@ -6,6 +6,9 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     int xBound = 18;
+
+    int xStep = 3;
+    int yStep = 2;
     public int Direction = 1;
 
     public GameObject Ufo;
@@ -31,14 +34,22 @@ public class SpawnManager : MonoBehaviour
         
         Vector3 nextSpawnPosition = initalSpawnPosition;
 
+        Enemy thisEnemy;
+        thisEnemy = Enemy.GetComponent<Enemy>();
+
+        int id = 0;
         for (int y = 0; y < yNumberOfEnemies; y++)
         {
             for (int x = 0; x < xNumberOfEnemies; x++)
             {
-                Instantiate(Enemy, nextSpawnPosition, Enemy.transform.rotation);
-                nextSpawnPosition.x += 2;
+                Instantiate(thisEnemy, nextSpawnPosition, Enemy.transform.rotation);
+                nextSpawnPosition.x += xStep;
+
+                thisEnemy.id = id;
+                id++;
             }
-            nextSpawnPosition.z += 2;
+
+            nextSpawnPosition.z += yStep;
             nextSpawnPosition.x = initalSpawnPosition.x;
         }
     }
