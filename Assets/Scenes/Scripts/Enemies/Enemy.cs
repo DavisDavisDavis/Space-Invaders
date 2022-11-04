@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     int Direction = 1;
     int xBound = 10;
 
-    public int id = 0;
+    public int rowNumber = 0;
     public int Points = 200;
     public int Speed;
     public int Step;

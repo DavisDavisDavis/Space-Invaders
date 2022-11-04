@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemies(3, 3, new Vector3(-9, 0, 4));
+        SpawnEnemies(3, 3, new Vector3(-7, 0, 4));
         InvokeRepeating("SpawnRandomUfo", 1, 2);
     }
 
@@ -37,17 +37,15 @@ public class SpawnManager : MonoBehaviour
         Enemy thisEnemy;
         thisEnemy = Enemy.GetComponent<Enemy>();
 
-        int id = 0;
         for (int y = 0; y < yNumberOfEnemies; y++)
         {
             for (int x = 0; x < xNumberOfEnemies; x++)
             {
+                thisEnemy.rowNumber = y;
                 Instantiate(thisEnemy, nextSpawnPosition, Enemy.transform.rotation);
                 nextSpawnPosition.x += xStep;
 
-                Debug.Log(id);
-                thisEnemy.id = id;
-                id++;
+                Debug.Log($"Row: {thisEnemy.rowNumber}, {y} \n Position:{nextSpawnPosition}");
             }
 
             nextSpawnPosition.z += yStep;
