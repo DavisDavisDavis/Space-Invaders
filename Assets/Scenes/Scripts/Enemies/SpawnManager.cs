@@ -44,14 +44,11 @@ public class SpawnManager : MonoBehaviour
                 thisEnemy.rowNumber = y;
                 Instantiate(thisEnemy, nextSpawnPosition, Enemy.transform.rotation);
                 nextSpawnPosition.x += xStep;
-
-                Debug.Log($"Row: {thisEnemy.rowNumber}, {y} \n Position:{nextSpawnPosition}");
             }
 
             nextSpawnPosition.z += yStep;
             nextSpawnPosition.x = initalSpawnPosition.x;
         }
-        Debug.Log("Jobs done!");
     }
 
     void SpawnRandomUfo()
