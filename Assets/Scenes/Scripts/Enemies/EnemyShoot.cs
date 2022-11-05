@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-    GameObject[] Enemies;
+    Enemy[] Enemies;
     GameObject[] FrontRowEnemies;
     // Start is called before the first frame update
     void Start()
     {
-        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        Enemies = GetComponentsInChildren<Enemy>();
         Debug.Log(Enemies);
     }
 
@@ -22,23 +22,31 @@ public class EnemyShoot : MonoBehaviour
     void RandomShoot()
     {
 
+
+
     }
 
-    void CheckFrontRow()
+    List<Enemy> GetFrontRow()
     {
-        GameObject tmpEnemy =  Enemies[0];
+        Enemy highestRowEnemy =  Enemies[0];
         foreach (var enemy in Enemies)
         {
-            if (tmpEnemy.transform.position.z > enemy.transform.position.z)
+            if (highestRowEnemy.transform.position.z < enemy.transform.position.z)
             {
-
+                highestRowEnemy = enemy;
             }
-
-            if (tmpEnemy.transform.position.z == enemy.transform.position.z)
-            {
-
-            }
-            tmpEnemy = enemy;
         }
+
+        List<Enemy> frontRow =  new List<Enemy>();
+        foreach (var enemy in Enemies)
+        {
+            if (highestRowEnemy.rowNumber == enemy.rowNumber)
+            {
+                frontRow.Add(enemy);
+            }
+        }
+
+        //Returns which row is furtest forward.
+        return frontRow;
     }
 }
