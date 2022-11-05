@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyShoot : MonoBehaviour
 {
     Enemy[] Enemies;
@@ -11,6 +12,7 @@ public class EnemyShoot : MonoBehaviour
     {
         Enemies = GetComponentsInChildren<Enemy>();
         Debug.Log(Enemies);
+        RandomShoot();
     }
 
     // Update is called once per frame
@@ -21,26 +23,29 @@ public class EnemyShoot : MonoBehaviour
 
     void RandomShoot()
     {
-
-
-
+        
+        List<Enemy> frontRow = GetFrontRow();
+        int rnd = Random.Range(0, frontRow.Count);
+        Debug.Log("Front " + frontRow.Count);
+        Debug.Log(rnd);
+        Debug.Log(frontRow[rnd]);
     }
 
     List<Enemy> GetFrontRow()
     {
-        Enemy highestRowEnemy =  Enemies[0];
+        int highestRowEnemy =  0;
         foreach (var enemy in Enemies)
         {
-            if (highestRowEnemy.transform.position.z < enemy.transform.position.z)
+            if (highestRowEnemy < enemy.rowNumber)
             {
-                highestRowEnemy = enemy;
+                highestRowEnemy = enemy.rowNumber;
             }
         }
 
         List<Enemy> frontRow =  new List<Enemy>();
         foreach (var enemy in Enemies)
         {
-            if (highestRowEnemy.rowNumber == enemy.rowNumber)
+            if (highestRowEnemy == enemy.rowNumber)
             {
                 frontRow.Add(enemy);
             }
