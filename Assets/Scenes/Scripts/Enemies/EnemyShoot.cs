@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-    Enemy[] Enemies;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,25 +31,28 @@ public class EnemyShoot : MonoBehaviour
 
     List<Enemy> GetFrontRow()
     {
-        Enemies = GetComponents<Enemy>();
+        GameObject[] Enemies;
+        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         Debug.Log("HIIIIII");
         int highestRowEnemy = 0;
         foreach (var enemy in Enemies)
         {
+            var enemyComponent = enemy.GetComponent<Enemy>();
             Debug.Log("OWo");
-            if (highestRowEnemy <= enemy.rowNumber)
+            if (highestRowEnemy <= enemyComponent.rowNumber)
             {
-                highestRowEnemy = enemy.rowNumber;
+                highestRowEnemy = enemyComponent.rowNumber;
             }
         }
 
         List<Enemy> frontRow = new List<Enemy>();
         foreach (var enemy in Enemies)
         {
-            if (highestRowEnemy == enemy.rowNumber)
+            var enemyComponent = enemy.GetComponent<Enemy>();
+            if (highestRowEnemy == enemyComponent.rowNumber)
             {
-                frontRow.Add(enemy);
+                frontRow.Add(enemyComponent);
             }
         }
         Debug.Log("High " + frontRow.Count);
