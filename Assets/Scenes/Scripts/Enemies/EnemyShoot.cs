@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-    
+    public GameObject EnemyBullet;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +24,10 @@ public class EnemyShoot : MonoBehaviour
 
         List<Enemy> frontRow = GetFrontRow();
         int rnd = Random.Range(0, frontRow.Count);
-        //Debug.Log("Front " + frontRow.Count);
-        //Debug.Log(rnd);
-        //Debug.Log(frontRow[rnd]);
+        Vector3 shootingPoint = frontRow[1].transform.position;
+
+        Instantiate(EnemyBullet, shootingPoint, EnemyBullet.transform.rotation);
+
     }
 
     List<Enemy> GetFrontRow()
