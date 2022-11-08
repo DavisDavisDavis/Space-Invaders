@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemies(3, 3, new Vector3(-7, 0, 4));
+        SpawnEnemies(3, 3, new Vector3(-7, 0, 10));
         InvokeRepeating("SpawnRandomUfo", 1, 2);
     }
 

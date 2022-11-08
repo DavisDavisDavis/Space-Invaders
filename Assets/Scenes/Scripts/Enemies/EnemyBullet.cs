@@ -19,7 +19,7 @@ public class EnemyBullet : MonoBehaviour
     {
         transform.Translate(Vector3.forward * Time.deltaTime * Speed);
 
-        if (transform.position.z > lower_bound)
+        if (transform.position.z < lower_bound)
             Destroy(gameObject);
     }
 }
