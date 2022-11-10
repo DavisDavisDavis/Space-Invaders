@@ -26,14 +26,22 @@ public class BulletCollision : MonoBehaviour
         {
             Enemy enemy = (Enemy)other.GetComponent<Enemy>();
             ScoreText.UpdateHighScore(enemy.Points);
+
+            Destroy(other.gameObject);
         }
         if(other.GetComponent<Ufo>())
         {
             Ufo ufo = (Ufo)other.GetComponent<Ufo>();
             ScoreText.UpdateHighScore(ufo.Points);
-        }
 
-        Destroy(other.gameObject);
+            Destroy(other.gameObject);
+        }
+        if (other.GetComponent<CoverBehaviour>())
+        {
+            Debug.Log("OWOWOW");
+            CoverBehaviour cover = (CoverBehaviour)other.GetComponent<CoverBehaviour>();
+            cover.hp -= 1;
+        }
         Destroy(gameObject);
     }
 }

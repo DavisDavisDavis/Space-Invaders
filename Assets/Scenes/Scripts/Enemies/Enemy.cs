@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     Vector3 Position;
     int Direction = 1;
-    int xBound = 10;
+    int xBound = 18;
 
     public int rowNumber = 0;
     public int Points = 200;
