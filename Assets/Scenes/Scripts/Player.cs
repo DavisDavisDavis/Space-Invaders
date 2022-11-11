@@ -5,14 +5,18 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int Speed;
+    public GameObject BulletObject;
+    Bullet Bullet;
+    public int Hp = 3;
+
     Vector3 Position;
-    public GameObject Bullet;
     float Timer = 0;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Bullet = BulletObject.GetComponent<Bullet>();
     }
 
     // Update is called once per frame
@@ -33,6 +37,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey("space") && Timer <= 0)
         {
+            Bullet.Speed = 7;
+            Bullet.Enemy = false;
             Instantiate(Bullet, new Vector3(Position.x, Position.y, Position.z + 2), Bullet.transform.rotation);
             Timer = 1;
         }

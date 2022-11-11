@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-    public GameObject EnemyBullet;
+    public GameObject BulletObject;
+    Bullet Bullet;
     // Start is called before the first frame update
     void Start()
     {
+        Bullet = (Bullet)BulletObject.GetComponent<Bullet>();
         InvokeRepeating("RandomShoot", 7, 6);
 
     }
@@ -27,7 +29,9 @@ public class EnemyShoot : MonoBehaviour
         Vector3 shootingPoint = frontRow[rnd].transform.position;
         shootingPoint.z = shootingPoint.z - 2;
 
-        Instantiate(EnemyBullet, shootingPoint, EnemyBullet.transform.rotation);
+        Bullet.Speed = -5;
+        Bullet.Enemy = true;
+        Instantiate(BulletObject, shootingPoint, BulletObject.transform.rotation);
 
     }
 

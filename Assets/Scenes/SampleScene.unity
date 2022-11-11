@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043b1431e8c11444380849f7c7acb48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyBullet: {fileID: 3492886749422863966, guid: 71ee4adfd5aaa7a40a738d849133c804, type: 3}
+  BulletObject: {fileID: 3492886749422863966, guid: c9c796805e521b64ba45eb3e618f973f, type: 3}
 --- !u!4 &1077506029
 Transform:
   m_ObjectHideFlags: 0
@@ -1287,7 +1287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 20
-  Bullet: {fileID: 3492886749422863966, guid: c9c796805e521b64ba45eb3e618f973f, type: 3}
+  BulletObject: {fileID: 3492886749422863966, guid: c9c796805e521b64ba45eb3e618f973f, type: 3}
+  Hp: 3
 --- !u!65 &1966142478
 BoxCollider:
   m_ObjectHideFlags: 0
