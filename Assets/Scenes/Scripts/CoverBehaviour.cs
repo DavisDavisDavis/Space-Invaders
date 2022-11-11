@@ -5,10 +5,11 @@ using UnityEngine;
 public class CoverBehaviour : MonoBehaviour
 {
     public int hp = 4;
+    Color Color;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
