@@ -1284,6 +1284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08fc0906ea4a53940947e292d0af22fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!1001 &1899044090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1413,7 +1414,7 @@ GameObject:
   - component: {fileID: 1966142477}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
