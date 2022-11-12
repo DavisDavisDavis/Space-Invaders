@@ -11,7 +11,7 @@ public class EnemyShoot : MonoBehaviour
     void Start()
     {
         Bullet = (Bullet)BulletObject.GetComponent<Bullet>();
-        InvokeRepeating("RandomShoot", 7, 6);
+        InvokeRepeating("RandomShoot", 7, 3);
 
     }
 
