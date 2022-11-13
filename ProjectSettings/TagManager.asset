@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ScoreText
   - Enemy
+  - Cover
+  - Ufo
   layers:
   - Default
   - TransparentFX
