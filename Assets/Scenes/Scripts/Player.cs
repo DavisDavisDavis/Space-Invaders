@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.MLAgents;
+using Unity.MLAgents.Sensors;
+using Unity.MLAgents.Actuators;
 
-public class Player : MonoBehaviour
+public class Player : Agent
 {
     public int Speed;
     public GameObject BulletObject;
@@ -14,28 +17,51 @@ public class Player : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    public override void Initialize()
     {
         Bullet = BulletObject.GetComponent<Bullet>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnActionReceived(ActionBuffers actions)
     {
+        var actionShoot = Mathf.FloorToInt(actions.DiscreteActions[0]);
+        if (actionShoot == 1)
+            Fire();
+
+        Move(actions.DiscreteActions);
+    }
+
+    public void Move(ActionSegment<int> act)
+    {
+        var action = act[1];
+        
         Position = transform.position;
-        if (Input.GetKey("left") & Position.x > -10)
+        if (action == 1 & Position.x > -10)
             Position.x -= Time.deltaTime * Speed;
 
-        if (Input.GetKey("right") & Position.x < 10)
+        if (action == 2 & Position.x < 10)
             Position.x += Time.deltaTime * Speed;
         transform.position = Position;
-
-        Fire();
     }
+    
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        var discreteActionsOut = actionsOut.DiscreteActions;
+
+        if (Input.GetKey("left") & Position.x > -10)
+            discreteActionsOut[1] = 1;
+        if (Input.GetKey("right") & Position.x < 10)
+            discreteActionsOut[1] = 2;
+
+        if (Input.GetKey("space"))
+            discreteActionsOut[0] = 1;
+    }
+
+
 
     void Fire()
     {
-        if (Input.GetKey("space") && Timer <= 0)
+        if (Timer <= 0)
         {
             Bullet.Speed = 7;
             Bullet.Enemy = false;
