@@ -57,8 +57,6 @@ public class Player : Agent
             discreteActionsOut[0] = 1;
     }
 
-
-
     void Fire()
     {
         if (Timer <= 0)
