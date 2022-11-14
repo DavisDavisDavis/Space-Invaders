@@ -10,8 +10,6 @@ public class ScoreManager : MonoBehaviour
     public string HighScoreText = "HIGH SCORE:";
     int Total = 0;
 
-
-
     public void UpdateHighScore(int score)
     {
         Total += score;

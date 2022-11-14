@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.MLAgents;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class BulletCollision : MonoBehaviour
 {
     ScoreManager ScoreText;
     Bullet Bullet;
+    Agent Agent;
     // Start is called before the first frame update
     void Start()
     {
         Bullet = gameObject.GetComponent<Bullet>();
             
         ScoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>();
+
+        Agent = GetComponent<Agent>();
     }
 
     // Update is called once per frame
@@ -49,7 +54,8 @@ public class BulletCollision : MonoBehaviour
         {
             Enemy enemy = (Enemy)other.GetComponent<Enemy>();
             ScoreText.UpdateHighScore(enemy.Points);
-
+            
+            Agent.AddReward(0.01f);
             Destroy(other.gameObject);
         }
         if (other.GetComponent<Ufo>())
@@ -59,6 +65,8 @@ public class BulletCollision : MonoBehaviour
 
             Destroy(other.gameObject);
         }
+
+        
     }
 
     void EnemyBullet(Collider other)
@@ -67,6 +75,9 @@ public class BulletCollision : MonoBehaviour
         {
             Player player = (Player)other.GetComponent<Player>();
             player.Hp -= 1;
+
+            Agent.AddReward(-1);
+            //Agent.EndEpisode();
 
             Debug.Log("OUCH!");
         }

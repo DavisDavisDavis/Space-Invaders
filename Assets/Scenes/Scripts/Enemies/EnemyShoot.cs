@@ -23,7 +23,6 @@ public class EnemyShoot : MonoBehaviour
 
     void RandomShoot()
     {
-        Debug.Log("Bang");
         List<Enemy> frontRow = GetFrontRow();
         int rnd = Random.Range(0, frontRow.Count);
         Vector3 shootingPoint = frontRow[rnd].transform.position;
@@ -60,7 +59,6 @@ public class EnemyShoot : MonoBehaviour
                 frontRow.Add(enemyComponent);
             }
         }
-        Debug.Log("High " + frontRow.Count);
 
         //Returns which row is furtest forward.
         return frontRow;
