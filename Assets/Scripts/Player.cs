@@ -40,9 +40,9 @@ public class Player : Agent
         var action = act[1];
         Position = transform.position;
 
-        if (action == 2 & Position.x > -10)
+        if (action == 1 & Position.x > -10)
             Position.x -= Time.deltaTime * Speed;
-        if (action == 1 & Position.x < 10)
+        if (action == 2 & Position.x < 10)
             Position.x += Time.deltaTime * Speed;
 
         transform.position = Position;
