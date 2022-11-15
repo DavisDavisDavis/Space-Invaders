@@ -1,5 +1,5 @@
 behaviors:
-  Jumper:
+  Player:
     trainer_type: ppo
   
     max_steps: 5.0e7
