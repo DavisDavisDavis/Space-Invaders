@@ -70,9 +70,4 @@ public class Player : Agent
         if (Input.GetKey("space"))
             discreteActionsOut[0] = 1;
     }
-
-    public void Hi()
-    {
-        Debug.Log("HIIII");
-    }
 }
