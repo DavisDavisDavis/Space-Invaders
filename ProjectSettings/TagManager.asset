@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Cover
   - Ufo
+  - SpawnManager
   layers:
   - Default
   - TransparentFX
