@@ -54,7 +54,7 @@ public class BulletCollision : MonoBehaviour
             Enemy enemy = (Enemy)other.GetComponent<Enemy>();
             ScoreText.UpdateHighScore(enemy.Points);
             
-            Agent.AddReward(0.01f);
+            Agent.AddReward(0.1f);
             Destroy(other.gameObject);
         }
         if (other.GetComponent<Ufo>())
@@ -62,6 +62,7 @@ public class BulletCollision : MonoBehaviour
             Ufo ufo = (Ufo)other.GetComponent<Ufo>();
             ScoreText.UpdateHighScore(ufo.Points);
 
+            Agent.AddReward(0.2f);
             Destroy(other.gameObject);
         }
 

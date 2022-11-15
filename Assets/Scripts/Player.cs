@@ -24,11 +24,8 @@ public class Player : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        var actionShoot = Mathf.FloorToInt(actions.DiscreteActions[0]);
-        if (actionShoot == 1)
-            Fire();
-
         Move(actions.DiscreteActions);
+        Fire(actions.DiscreteActions);
     }
 
     public void Move(ActionSegment<int> act)
@@ -43,7 +40,24 @@ public class Player : Agent
             Position.x += Time.deltaTime * Speed;
         transform.position = Position;
     }
-    
+
+    void Fire(ActionSegment<int> act)
+    {
+        var action = act[0];
+
+        if (action == 1 && Timer <= 0)
+        {
+            Bullet.Speed = 7;
+            Bullet.Enemy = false;
+            Instantiate(Bullet, new Vector3(Position.x, Position.y, Position.z + 2), Bullet.transform.rotation);
+            Timer = 1;
+        }
+        else
+        {
+            Timer -= Time.deltaTime;
+        }
+    }
+
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var discreteActionsOut = actionsOut.DiscreteActions;
@@ -55,21 +69,6 @@ public class Player : Agent
 
         if (Input.GetKey("space"))
             discreteActionsOut[0] = 1;
-    }
-
-    void Fire()
-    {
-        if (Timer <= 0)
-        {
-            Bullet.Speed = 7;
-            Bullet.Enemy = false;
-            Instantiate(Bullet, new Vector3(Position.x, Position.y, Position.z + 2), Bullet.transform.rotation);
-            Timer = 1;
-        }
-        else
-        {
-            Timer -= Time.deltaTime;
-        }
     }
 
     public void Hi()
