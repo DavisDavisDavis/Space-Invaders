@@ -71,4 +71,9 @@ public class Player : Agent
             Timer -= Time.deltaTime;
         }
     }
+
+    public void Hi()
+    {
+        Debug.Log("HIIII");
+    }
 }

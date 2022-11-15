@@ -9,7 +9,7 @@ public class BulletCollision : MonoBehaviour
 {
     ScoreManager ScoreText;
     Bullet Bullet;
-    Agent Agent;
+    Player Agent;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class BulletCollision : MonoBehaviour
             
         ScoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>();
 
-        Agent = GetComponent<Agent>();
+        Agent = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -30,7 +30,6 @@ public class BulletCollision : MonoBehaviour
     {
         if (!Bullet.Enemy)
         {
-            Debug.Log("Player shoot");
             PlayerBullet(other);
         }
 
