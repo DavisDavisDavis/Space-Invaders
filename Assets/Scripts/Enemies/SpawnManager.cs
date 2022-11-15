@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemies(8, 5, new Vector3(-7, 0, 20));
+        //SpawnEnemies(8, 5, new Vector3(-7, 0, 20));
         InvokeRepeating("SpawnRandomUfo", 17, 12);
     }
 
@@ -65,5 +66,17 @@ public class SpawnManager : MonoBehaviour
 
         Vector3 spawnPoint = new Vector3(randomPoint, 1.5f, 24);
         Instantiate(Ufo, spawnPoint, Ufo.transform.rotation);
+    }
+
+    public void Reset()
+    {
+        GameObject[] allEnmies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (var enemy in allEnmies)
+        {
+            Destroy(enemy);
+        }
+
+        SpawnEnemies(8, 5, new Vector3(-7, 0, 20));
     }
 }

@@ -9,7 +9,7 @@ public class BulletCollision : MonoBehaviour
 {
     ScoreManager ScoreText;
     Bullet Bullet;
-    Player Agent;
+    Player Player;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class BulletCollision : MonoBehaviour
             
         ScoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>();
 
-        Agent = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -54,7 +54,7 @@ public class BulletCollision : MonoBehaviour
             Enemy enemy = (Enemy)other.GetComponent<Enemy>();
             ScoreText.UpdateHighScore(enemy.Points);
             
-            Agent.AddReward(0.1f);
+            Player.AddReward(0.1f);
             Destroy(other.gameObject);
         }
         if (other.GetComponent<Ufo>())
@@ -62,7 +62,7 @@ public class BulletCollision : MonoBehaviour
             Ufo ufo = (Ufo)other.GetComponent<Ufo>();
             ScoreText.UpdateHighScore(ufo.Points);
 
-            Agent.AddReward(0.2f);
+            Player.AddReward(0.2f);
             Destroy(other.gameObject);
         }
 
@@ -76,8 +76,8 @@ public class BulletCollision : MonoBehaviour
             Player player = (Player)other.GetComponent<Player>();
             player.Hp -= 1;
 
-            Agent.AddReward(-1);
-            //Agent.EndEpisode();
+            Player.AddReward(-1);
+            Player.EndEpisode();
 
             Debug.Log("OUCH!");
         }

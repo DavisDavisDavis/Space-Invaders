@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
+using UnityEditor.PackageManager.Requests;
 
 public class Player : Agent
 {
@@ -14,12 +15,18 @@ public class Player : Agent
 
     Vector3 Position;
     float Timer = 0;
-
+    SpawnManager spawnManager;
 
     // Start is called before the first frame update
     public override void Initialize()
     {
         Bullet = BulletObject.GetComponent<Bullet>();
+        spawnManager = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
+    }
+
+    public override void OnEpisodeBegin()
+    {
+        Reset();
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -69,5 +76,13 @@ public class Player : Agent
 
         if (Input.GetKey("space"))
             discreteActionsOut[0] = 1;
+    }
+
+    public void Reset()
+    {
+        Vector3 initialPosition = new Vector3(-2.3f, 0.3f, -5.3f);
+        transform.position = initialPosition;
+
+        spawnManager.Reset();
     }
 }
