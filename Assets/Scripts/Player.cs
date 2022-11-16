@@ -88,7 +88,13 @@ public class Player : Agent
         transform.position = initialPosition;
 
         scoreManager.Total = 0;
+
         spawnManager.ResetEnemies();
         spawnManager.ResetCovers();
+        spawnManager.ResetUfo();
+
+        GameObject[] allBullets = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach (var bullet in allBullets)
+            Destroy(bullet);
     }
 }
