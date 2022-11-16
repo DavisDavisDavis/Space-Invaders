@@ -89,6 +89,6 @@ public class Player : Agent
 
         scoreManager.Total = 0;
         spawnManager.ResetEnemies();
-        spawnManager.SpawnCover();
+        spawnManager.ResetCovers();
     }
 }

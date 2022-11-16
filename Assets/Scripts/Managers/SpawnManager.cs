@@ -22,26 +22,12 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnRandomUfo", 17, 12);
-        //SpawnCover();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-    }
-
-    public void SpawnCover()
-    {
-        GameObject[] allCover = GameObject.FindGameObjectsWithTag("Cover");
-
-        foreach (var cover in allCover)
-        {
-            Destroy(cover);
-        }
-
-        Vector3 coversPosition = new Vector3(11, 0.5f, -0.5f);
-        Instantiate(Covers, coversPosition, Covers.transform.rotation);
     }
 
     void SpawnEnemies(int xNumberOfEnemies, int yNumberOfEnemies, Vector3 initalSpawnPosition)
@@ -92,5 +78,28 @@ public class SpawnManager : MonoBehaviour
         }
 
         SpawnEnemies(8, 5, new Vector3(-7, 0, 20));
+    }
+
+    public void ResetCovers()
+    {
+        GameObject[] allCover = GameObject.FindGameObjectsWithTag("Cover");
+
+        foreach (var cover in allCover)
+        {
+            Destroy(cover);
+        }
+
+        Vector3 coversPosition = new Vector3(11, 0.5f, -0.5f);
+        Instantiate(Covers, coversPosition, Covers.transform.rotation);
+    }
+
+    public void ResetUfo()
+    {
+        GameObject[] allUfo = GameObject.FindGameObjectsWithTag("Ufo");
+
+        foreach (var ufo in allUfo)
+        {
+            Destroy(ufo);
+        }
     }
 }
