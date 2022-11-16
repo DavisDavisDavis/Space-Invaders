@@ -83,6 +83,7 @@ public class Player : Agent
         Vector3 initialPosition = new Vector3(-2.3f, 0.3f, -5.3f);
         transform.position = initialPosition;
 
-        spawnManager.Reset();
+        spawnManager.ResetEnemies();
+        spawnManager.SpawnCover();
     }
 }

@@ -14,6 +14,7 @@ public class SpawnManager : MonoBehaviour
 
     public GameObject Ufo;
     public GameObject Enemy;
+    public GameObject Covers;
     public int Points = 800;
     public int Speed;
 
@@ -21,12 +22,26 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnRandomUfo", 17, 12);
+        //SpawnCover();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void SpawnCover()
+    {
+        GameObject[] allCover = GameObject.FindGameObjectsWithTag("Cover");
+
+        foreach (var cover in allCover)
+        {
+            Destroy(cover);
+        }
+
+        Vector3 coversPosition = new Vector3(11, 0.5f, -0.5f);
+        Instantiate(Covers, coversPosition, Covers.transform.rotation);
     }
 
     void SpawnEnemies(int xNumberOfEnemies, int yNumberOfEnemies, Vector3 initalSpawnPosition)
@@ -67,7 +82,7 @@ public class SpawnManager : MonoBehaviour
         Instantiate(Ufo, spawnPoint, Ufo.transform.rotation);
     }
 
-    public void Reset()
+    public void ResetEnemies()
     {
         GameObject[] allEnmies = GameObject.FindGameObjectsWithTag("Enemy");
 
