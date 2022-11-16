@@ -16,12 +16,14 @@ public class Player : Agent
     Vector3 Position;
     float Timer = 0;
     SpawnManager spawnManager;
+    ScoreManager scoreManager;
 
     // Start is called before the first frame update
     public override void Initialize()
     {
         Bullet = BulletObject.GetComponent<Bullet>();
         spawnManager = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
+        scoreManager = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>(); 
     }
 
     public override void OnEpisodeBegin()
@@ -83,6 +85,8 @@ public class Player : Agent
         Vector3 initialPosition = new Vector3(-2.3f, 0.3f, -5.3f);
         transform.position = initialPosition;
 
+
+        scoreManager.Total = 0;
         spawnManager.ResetEnemies();
         spawnManager.SpawnCover();
     }

@@ -6,14 +6,21 @@ using Unity.MLAgents;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TMP_Text HighScore;
+    public TMP_Text Text;
     public string HighScoreText = "HIGH SCORE:";
-    int Total = 0;
+    public int Total = 0;
+    int HighScore = 0;
 
     public void UpdateHighScore(int score)
     {
         Total += score;
-        HighScore.text = $"{HighScoreText} {Total}";
-        HighScore.color = Color.red;
+
+        if (Total > HighScore)
+        {
+            HighScore = Total;
+
+            Text.text = $"{HighScoreText} {Total}";
+            Text.color = Color.red;
+        }
     }
 }
