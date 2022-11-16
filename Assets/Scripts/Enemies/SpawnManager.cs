@@ -84,9 +84,9 @@ public class SpawnManager : MonoBehaviour
 
     public void ResetEnemies()
     {
-        GameObject[] allEnmies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        foreach (var enemy in allEnmies)
+        foreach (var enemy in allEnemies)
         {
             Destroy(enemy);
         }
