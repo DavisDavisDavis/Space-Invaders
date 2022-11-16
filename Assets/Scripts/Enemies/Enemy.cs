@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.MLAgents;
 using UnityEngine;
 
@@ -30,15 +31,17 @@ public class Enemy : MonoBehaviour
         if (Position.x > xBound)
         {
             Position.x = xBound;
-            Position.z -= Step;
             Direction = -1;
+
+            EnemiesSwitchDirection(Direction);
         }
 
         if (Position.x < -xBound)
         {
             Position.x = -xBound;
-            Position.z -= Step;
             Direction = 1;
+
+            EnemiesSwitchDirection(Direction);
         }
 
         if (Position.z < LoosingLine)
@@ -52,5 +55,19 @@ public class Enemy : MonoBehaviour
 
         Position.x += Time.deltaTime * Speed * Direction;
         transform.position = Position;
+    }
+
+    void EnemiesSwitchDirection(int direction)
+    {
+        GameObject[] allEnemiesOuter = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject obj in allEnemiesOuter)
+        {
+            obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y, obj.transform.position.z - 0.3f);
+
+            Enemy enemyInner = obj.GetComponent<Enemy>();
+            enemyInner.Direction = direction;
+        }
+
+        Debug.Log("Wha");
     }
 }
