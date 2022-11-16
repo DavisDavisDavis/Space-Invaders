@@ -43,9 +43,9 @@ public class Player : Agent
         var action = act[1];
         Position = transform.position;
 
-        if (action == 1 & Position.x > -10)
+        if (action == 1 & Position.x > -12)
             Position.x -= Time.deltaTime * Speed;
-        if (action == 2 & Position.x < 10)
+        if (action == 2 & Position.x < 12)
             Position.x += Time.deltaTime * Speed;
 
         transform.position = Position;
@@ -73,9 +73,9 @@ public class Player : Agent
     {
         var discreteActionsOut = actionsOut.DiscreteActions;
 
-        if (Input.GetKey("left") & Position.x > -10)
+        if (Input.GetKey("left") & Position.x > -12)
             discreteActionsOut[1] = 1;
-        if (Input.GetKey("right") & Position.x < 10)
+        if (Input.GetKey("right") & Position.x < 12)
             discreteActionsOut[1] = 2;
 
         if (Input.GetKey("space"))
