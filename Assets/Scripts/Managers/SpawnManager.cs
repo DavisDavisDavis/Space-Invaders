@@ -89,7 +89,7 @@ public class SpawnManager : MonoBehaviour
             Destroy(cover);
         }
 
-        Vector3 coversPosition = new Vector3(11, 0.5f, -0.5f);
+        Vector3 coversPosition = new Vector3(13, 0.5f, -0.5f);
         Instantiate(Covers, coversPosition, Covers.transform.rotation);
     }
 
