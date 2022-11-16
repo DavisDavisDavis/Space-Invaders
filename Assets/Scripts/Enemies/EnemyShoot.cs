@@ -31,7 +31,6 @@ public class EnemyShoot : MonoBehaviour
         Bullet.Speed = -5;
         Bullet.Enemy = true;
         Instantiate(BulletObject, shootingPoint, BulletObject.transform.rotation);
-
     }
 
     List<Enemy> GetFrontRow()

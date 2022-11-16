@@ -9,19 +9,20 @@ using UnityEditor.PackageManager.Requests;
 public class Player : Agent
 {
     public int Speed;
-    public GameObject BulletObject;
-    Bullet Bullet;
     public int Hp = 3;
+    public GameObject bulletOuter;
+
 
     Vector3 Position;
     float Timer = 0;
+    Bullet bulletInner;
     SpawnManager spawnManager;
     ScoreManager scoreManager;
 
     // Start is called before the first frame update
     public override void Initialize()
     {
-        Bullet = BulletObject.GetComponent<Bullet>();
+        bulletInner = bulletOuter.GetComponent<Bullet>();
         spawnManager = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
         scoreManager = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>(); 
     }
@@ -56,9 +57,10 @@ public class Player : Agent
 
         if (action == 1 && Timer <= 0)
         {
-            Bullet.Speed = 7;
-            Bullet.Enemy = false;
-            Instantiate(Bullet, new Vector3(Position.x, Position.y, Position.z + 2), Bullet.transform.rotation);
+            bulletInner.Speed = 7;
+            bulletInner.Enemy = false;
+
+            Instantiate(bulletOuter, new Vector3(Position.x, Position.y, Position.z + 2), bulletOuter.transform.rotation);
             Timer = 1;
         }
         else
@@ -84,7 +86,6 @@ public class Player : Agent
     {
         Vector3 initialPosition = new Vector3(-2.3f, 0.3f, -5.3f);
         transform.position = initialPosition;
-
 
         scoreManager.Total = 0;
         spawnManager.ResetEnemies();

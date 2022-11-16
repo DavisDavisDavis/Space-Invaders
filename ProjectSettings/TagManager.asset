@@ -9,6 +9,7 @@ TagManager:
   - Cover
   - Ufo
   - SpawnManager
+  - Bullet
   layers:
   - Default
   - TransparentFX
