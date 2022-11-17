@@ -61,7 +61,7 @@ public class Player : Agent
             bulletInner.Enemy = false;
 
             Instantiate(bulletOuter, new Vector3(Position.x, Position.y, Position.z + 2), bulletOuter.transform.rotation);
-            Timer = 1;
+            Timer = 0.7f;
         }
         else
         {
