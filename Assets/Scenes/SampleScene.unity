@@ -864,7 +864,7 @@ MonoBehaviour:
   - EnemyBullet
   m_RaysPerDirection: 10
   m_MaxRayDegrees: 72.2
-  m_SphereCastRadius: 0.2
+  m_SphereCastRadius: 0.17
   m_RayLength: 61
   m_RayLayerMask:
     serializedVersion: 2
