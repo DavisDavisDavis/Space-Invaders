@@ -5,10 +5,10 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     // Start is called before the first frame update
-    Vector3 Position;
-    public int Speed = 5;
-    public float top_bound = 30;
-    public float lower_bound = -10;
+    Vector3 position;
+    public int speed = 5;
+    public float topBound = 30;
+    public float lowerBound = -10;
 
     public bool Enemy = false;
     void Start()
@@ -19,9 +19,9 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * Speed);
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
-        if (transform.position.z > top_bound || transform.position.z < lower_bound)
+        if (transform.position.z > topBound || transform.position.z < lowerBound)
             Destroy(gameObject);
     }
 }

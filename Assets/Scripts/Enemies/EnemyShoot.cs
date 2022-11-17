@@ -28,7 +28,7 @@ public class EnemyShoot : MonoBehaviour
         Vector3 shootingPoint = frontRow[rnd].transform.position;
         shootingPoint.z = shootingPoint.z - 2;
 
-        Bullet.Speed = -5;
+        Bullet.speed = -5;
         Bullet.Enemy = true;
         Instantiate(BulletObject, shootingPoint, BulletObject.transform.rotation);
     }
