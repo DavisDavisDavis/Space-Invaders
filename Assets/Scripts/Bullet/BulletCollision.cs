@@ -10,6 +10,9 @@ public class BulletCollision : MonoBehaviour
     ScoreManager ScoreText;
     Bullet Bullet;
     Player Player;
+    SpawnManager spawnManager;
+    int totalEnemies;
+    int enemyKillerCount;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,10 @@ public class BulletCollision : MonoBehaviour
         ScoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>();
 
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        spawnManager = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
+
+        totalEnemies = spawnManager.numberOfEnemiesX + spawnManager.numberOfEnemiesY;
     }
 
     // Update is called once per frame
@@ -56,6 +63,13 @@ public class BulletCollision : MonoBehaviour
             
             Player.AddReward(0.1f);
             Destroy(other.gameObject);
+
+            enemyKillerCount++;
+
+            if (enemyKillerCount == totalEnemies)
+            {
+                Debug.Log("GAME WON!");
+            }
         }
         if (other.GetComponent<Ufo>())
         {

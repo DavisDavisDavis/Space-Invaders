@@ -17,6 +17,8 @@ public class SpawnManager : MonoBehaviour
     public GameObject Covers;
     public int Points = 800;
     public int Speed;
+    public int numberOfEnemiesX = 8;
+    public int numberOfEnemiesY = 5;
 
     // Start is called before the first frame update
     void Start()
