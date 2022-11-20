@@ -192,6 +192,9 @@ MonoBehaviour:
   Covers: {fileID: 6816177778156949486, guid: 8b8cb9c8c0871584d81e5fdc29889a12, type: 3}
   Points: 800
   Speed: 2
+  numberOfEnemiesX: 8
+  numberOfEnemiesY: 5
+  totalNumberOfEnemies: 0
 --- !u!4 &539408394
 Transform:
   m_ObjectHideFlags: 0
@@ -824,7 +827,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 1
   m_BehaviorName: Player
   TeamId: 0
   m_UseChildSensors: 1

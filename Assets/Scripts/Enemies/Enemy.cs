@@ -67,7 +67,5 @@ public class Enemy : MonoBehaviour
             Enemy enemyInner = obj.GetComponent<Enemy>();
             enemyInner.Direction = direction;
         }
-
-        Debug.Log("Wha");
     }
 }

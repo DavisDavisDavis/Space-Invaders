@@ -23,8 +23,6 @@ public class BulletCollision : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         spawnManager = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
-
-        totalEnemies = spawnManager.numberOfEnemiesX + spawnManager.numberOfEnemiesY;
     }
 
     // Update is called once per frame
@@ -66,7 +64,7 @@ public class BulletCollision : MonoBehaviour
 
             enemyKillerCount++;
 
-            if (enemyKillerCount == totalEnemies)
+            if (enemyKillerCount == spawnManager.totalNumberOfEnemies)
             {
                 Debug.Log("GAME WON!");
             }

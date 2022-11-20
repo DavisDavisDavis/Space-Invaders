@@ -19,11 +19,13 @@ public class SpawnManager : MonoBehaviour
     public int Speed;
     public int numberOfEnemiesX = 8;
     public int numberOfEnemiesY = 5;
+    public int totalNumberOfEnemies;
 
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("SpawnRandomUfo", 17, 12);
+        totalNumberOfEnemies = numberOfEnemiesX * numberOfEnemiesY;
     }
 
     // Update is called once per frame
