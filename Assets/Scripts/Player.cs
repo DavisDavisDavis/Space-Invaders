@@ -55,6 +55,7 @@ public class Player : Agent
     {
         var action = act[0];
 
+        AddReward(-0.01f);
         if (action == 1 && Timer <= 0)
         {
             bulletInner.speed = 7;
