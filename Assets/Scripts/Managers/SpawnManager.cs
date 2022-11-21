@@ -17,8 +17,6 @@ public class SpawnManager : MonoBehaviour
     public GameObject Covers;
     public int Points = 800;
     public int Speed;
-    public int numberOfEnemiesX = 8;
-    public int numberOfEnemiesY = 5;
     public int totalNumberOfEnemies;
 
     // Start is called before the first frame update
@@ -26,7 +24,7 @@ public class SpawnManager : MonoBehaviour
     {
         InvokeRepeating("SpawnRandomUfo", 17, 12);
    
-        totalNumberOfEnemies = numberOfEnemiesX * numberOfEnemiesY;
+        
     }
 
     // Update is called once per frame
@@ -37,7 +35,8 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemies(int xNumberOfEnemies, int yNumberOfEnemies, Vector3 initalSpawnPosition)
     {
-        
+        totalNumberOfEnemies = xNumberOfEnemies * yNumberOfEnemies;
+
         Vector3 nextSpawnPosition = initalSpawnPosition;
 
         Enemy thisEnemy;
