@@ -25,6 +25,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnRandomUfo", 17, 12);
+   
         totalNumberOfEnemies = numberOfEnemiesX * numberOfEnemiesY;
     }
 

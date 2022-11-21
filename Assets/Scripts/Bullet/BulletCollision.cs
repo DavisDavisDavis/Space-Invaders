@@ -12,7 +12,7 @@ public class BulletCollision : MonoBehaviour
     Player Player;
     SpawnManager spawnManager;
     int totalEnemies;
-    int enemyKillerCount;
+    int enemyKillerCount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,12 +62,15 @@ public class BulletCollision : MonoBehaviour
             Player.AddReward(0.1f);
             Destroy(other.gameObject);
 
-            enemyKillerCount++;
+            spawnManager.totalNumberOfEnemies = spawnManager.totalNumberOfEnemies - 1;
 
-            if (enemyKillerCount == spawnManager.totalNumberOfEnemies)
+            Debug.Log(spawnManager.totalNumberOfEnemies);
+            if (0 >= spawnManager.totalNumberOfEnemies)
             {
-                Debug.Log("GAME WON!");
+                Player.AddReward(1);
+                Player.EndEpisode();
             }
+
         }
         if (other.GetComponent<Ufo>())
         {
@@ -77,8 +80,6 @@ public class BulletCollision : MonoBehaviour
             Player.AddReward(0.15f);
             Destroy(other.gameObject);
         }
-
-        
     }
 
     void EnemyBullet(Collider other)
