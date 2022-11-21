@@ -12,7 +12,6 @@ public class BulletCollision : MonoBehaviour
     Player Player;
     SpawnManager spawnManager;
     int totalEnemies;
-    int enemyKillerCount = 0;
     // Start is called before the first frame update
     void Start()
     {
