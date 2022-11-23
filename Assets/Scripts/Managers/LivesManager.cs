@@ -14,7 +14,7 @@ public class LivesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Player.Hp <= 0)
+        if (Player.hp <= 0)
         {
             Debug.Log("DEADDDDD");
         }

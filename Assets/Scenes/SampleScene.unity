@@ -704,8 +704,8 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  Speed: 20
-  Hp: 3
+  speed: 20
+  hp: 3
   bulletOuter: {fileID: 3492886749422863966, guid: c9c796805e521b64ba45eb3e618f973f, type: 3}
 --- !u!65 &1966142478
 BoxCollider:

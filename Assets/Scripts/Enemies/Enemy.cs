@@ -6,54 +6,53 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    Vector3 Position;
-    int Direction = 1;
-    int xBound = 18;
-    int LoosingLine = 4;
-
+    public int speed = 6;
+    public int step = 2;
     public int rowNumber = 0;
-    public int Points = 200;
-    public int Speed;
-    public int Step;
+    public int points = 200;
 
-    Player Player;
+    Player player;
+    Vector3 position;
+    int direction = 1;
+    int xBound = 18;
+    int loosingLine = 4;
+
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Position = transform.position;
+        position = transform.position;
 
-        if (Position.x > xBound)
+        if (position.x > xBound)
         {
-            Position.x = xBound;
-            Direction = -1;
+            position.x = xBound;
+            direction = -1;
 
-            EnemiesSwitchDirection(Direction);
+            EnemiesSwitchDirection(direction);
+        }
+        if (position.x < -xBound)
+        {
+            position.x = -xBound;
+            direction = 1;
+
+            EnemiesSwitchDirection(direction);
         }
 
-        if (Position.x < -xBound)
+        if (position.z < loosingLine)
         {
-            Position.x = -xBound;
-            Direction = 1;
-
-            EnemiesSwitchDirection(Direction);
-        }
-
-        if (Position.z < LoosingLine)
-        {
-            Player.AddReward(-1);
-            Debug.Log("You lost! " + Player.GetCumulativeReward());
-            Player.EndEpisode();
+            player.AddReward(-1);
+            Debug.Log("You lost! " + player.GetCumulativeReward());
+            player.EndEpisode();
         }
 
 
-        Position.x += Time.deltaTime * Speed * Direction;
-        transform.position = Position;
+        position.x += Time.deltaTime * speed * direction;
+        transform.position = position;
     }
 
     void EnemiesSwitchDirection(int direction)
@@ -61,10 +60,11 @@ public class Enemy : MonoBehaviour
         GameObject[] allEnemiesOuter = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject obj in allEnemiesOuter)
         {
-            obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y, obj.transform.position.z - 0.3f);
+            Vector3 forwardStep = new Vector3(obj.transform.position.x, obj.transform.position.y, obj.transform.position.z - 0.3f);
+            obj.transform.position = forwardStep;
 
             Enemy enemyInner = obj.GetComponent<Enemy>();
-            enemyInner.Direction = direction;
+            enemyInner.direction = direction;
         }
     }
 }

@@ -56,7 +56,7 @@ public class BulletCollision : MonoBehaviour
         if (other.GetComponent<Enemy>())
         {
             Enemy enemy = (Enemy)other.GetComponent<Enemy>();
-            ScoreText.UpdateHighScore(enemy.Points);
+            ScoreText.UpdateHighScore(enemy.points);
             
             Player.AddReward(0.1f);
             Destroy(other.gameObject);

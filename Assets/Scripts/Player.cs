@@ -6,13 +6,12 @@ using Unity.MLAgents.Actuators;
 
 public class Player : Agent
 {
-    public int Speed;
-    public int Hp = 3;
+    public int speed = 20;
+    public int hp = 3;
     public GameObject bulletOuter;
 
-
-    Vector3 Position;
-    float Timer = 0;
+    Vector3 position;
+    float timer = 0;
     Bullet bulletInner;
     SpawnManager spawnManager;
     ScoreManager scoreManager;
@@ -39,14 +38,14 @@ public class Player : Agent
     public void Move(ActionSegment<int> act)
     {
         var action = act[1];
-        Position = transform.position;
+        position = transform.position;
 
-        if (action == 1 & Position.x > -12)
-            Position.x -= Time.deltaTime * Speed;
-        if (action == 2 & Position.x < 12)
-            Position.x += Time.deltaTime * Speed;
+        if (action == 1 & position.x > -12)
+            position.x -= Time.deltaTime * speed;
+        if (action == 2 & position.x < 12)
+            position.x += Time.deltaTime * speed;
 
-        transform.position = Position;
+        transform.position = position;
     }
 
     void Fire(ActionSegment<int> act)
@@ -55,17 +54,17 @@ public class Player : Agent
 
         AddReward(-0.003f);
 
-        if (action == 1 && Timer <= 0)
+        if (action == 1 && timer <= 0)
         {
             bulletInner.speed = 10;
             bulletInner.Enemy = false;
 
-            Instantiate(bulletOuter, new Vector3(Position.x, Position.y, Position.z + 2), bulletOuter.transform.rotation);
-            Timer = 0.7f;
+            Instantiate(bulletOuter, new Vector3(position.x, position.y, position.z + 2), bulletOuter.transform.rotation);
+            timer = 0.7f;
         }
         else
         {
-            Timer -= Time.deltaTime;
+            timer -= Time.deltaTime;
         }
     }
 
@@ -73,9 +72,9 @@ public class Player : Agent
     {
         var discreteActionsOut = actionsOut.DiscreteActions;
 
-        if (Input.GetKey("left") & Position.x > -12)
+        if (Input.GetKey("left") & position.x > -12)
             discreteActionsOut[1] = 1;
-        if (Input.GetKey("right") & Position.x < 12)
+        if (Input.GetKey("right") & position.x < 12)
             discreteActionsOut[1] = 2;
 
         if (Input.GetKey("space"))
