@@ -1,23 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    Vector3 Position;
-    public int Speed;
-    public float lower_bound = -30;
+    public int speed;
 
-    void Start()
-    {
-
-    }
+    Vector3 position;
+    int lower_bound = -30;
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * Speed);
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
         if (transform.position.z < lower_bound)
             Destroy(gameObject);
