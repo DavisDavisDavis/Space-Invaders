@@ -186,13 +186,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604bf591c6486b241992515dc856fc8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Direction: 1
-  Ufo: {fileID: 7360340735032460572, guid: a0d135e125c40324c800354dd9a7760f, type: 3}
-  Enemy: {fileID: 8631265472579950739, guid: 540b26d32eaf1b642974bb9c5aee9ba2, type: 3}
-  Covers: {fileID: 6816177778156949486, guid: 8b8cb9c8c0871584d81e5fdc29889a12, type: 3}
-  Points: 800
-  Speed: 2
+  ufo: {fileID: 7360340735032460572, guid: a0d135e125c40324c800354dd9a7760f, type: 3}
+  enemy: {fileID: 8631265472579950739, guid: 540b26d32eaf1b642974bb9c5aee9ba2, type: 3}
+  covers: {fileID: 6816177778156949486, guid: 8b8cb9c8c0871584d81e5fdc29889a12, type: 3}
+  points: 800
+  speed: 0
   totalNumberOfEnemies: 0
+  direction: 1
 --- !u!4 &539408394
 Transform:
   m_ObjectHideFlags: 0
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef95e1bf6012def4bb977877f05170b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1966142476}
+  player: {fileID: 1966142476}
 --- !u!1 &1077506027
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043b1431e8c11444380849f7c7acb48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletObject: {fileID: 3492886749422863966, guid: 71ee4adfd5aaa7a40a738d849133c804, type: 3}
+  outerBullet: {fileID: 3492886749422863966, guid: c9c796805e521b64ba45eb3e618f973f, type: 3}
 --- !u!4 &1077506029
 Transform:
   m_ObjectHideFlags: 0
@@ -630,9 +630,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ed1588d7df7b646a16b936f10e4093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 1339848988}
-  HighScoreText: 'HIGH SCORE:'
-  Total: 0
+  text: {fileID: 1339848988}
+  highScoreText: 'HIGH SCORE:'
+  total: 0
 --- !u!1 &1876582153
 GameObject:
   m_ObjectHideFlags: 0
