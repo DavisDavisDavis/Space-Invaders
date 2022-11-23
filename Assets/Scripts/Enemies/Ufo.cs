@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class Ufo : MonoBehaviour
 {
-    Vector3 Position;
+    public int points = 800;
+
+    Vector3 position;
+    int speed = 4;
+    int direction = 1;
     int xBound = 20;
     int xSpawnBound = 18;
-    int Direction = 1;
-
-    public int Points = 800;
-    public int Speed;
 
     // Start is called before the first frame update
     void Start()
     {
         if(transform.position.x < -xSpawnBound + 1)
         {
-            Direction = 1;
+            direction = 1;
         }
         if (transform.position.x > xSpawnBound - 1)
         {
-            Direction = -1;
+            direction = -1;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        Position = transform.position;
-        Position.x += Direction * Speed * Time.deltaTime;
+        position = transform.position;
+        position.x += direction * speed * Time.deltaTime;
 
-        if (Position.x > xBound || Position.x < -xBound)
+        if (position.x > xBound || position.x < -xBound)
         {
             Destroy(gameObject);
         }
 
-        transform.position = Position;
+        transform.position = position;
     }
 }

@@ -61,7 +61,7 @@ public class BulletCollision : MonoBehaviour
         if (other.GetComponent<Ufo>())
         {
             Ufo ufo = other.GetComponent<Ufo>();
-            scoreText.UpdateHighScore(ufo.Points);
+            scoreText.UpdateHighScore(ufo.points);
 
             player.AddReward(0.08f);
             Destroy(other.gameObject);
