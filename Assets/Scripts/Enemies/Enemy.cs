@@ -46,9 +46,8 @@ public class Enemy : MonoBehaviour
 
         if (Position.z < LoosingLine)
         {
-            Debug.Log("You lost");
-
             Player.AddReward(-1);
+            Debug.Log("You lost! " + Player.GetCumulativeReward());
             Player.EndEpisode();
         }
 

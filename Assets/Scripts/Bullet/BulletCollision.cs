@@ -68,6 +68,8 @@ public class BulletCollision : MonoBehaviour
             {
                 Player.AddReward(1);
                 Player.EndEpisode();
+
+                Debug.Log("Won!!!");
             }
 
         }
@@ -76,7 +78,7 @@ public class BulletCollision : MonoBehaviour
             Ufo ufo = (Ufo)other.GetComponent<Ufo>();
             ScoreText.UpdateHighScore(ufo.Points);
 
-            Player.AddReward(0.15f);
+            Player.AddReward(0.08f);
             Destroy(other.gameObject);
         }
     }
@@ -85,13 +87,10 @@ public class BulletCollision : MonoBehaviour
     {
         if (other.GetComponent<Player>())
         {
-            Player player = (Player)other.GetComponent<Player>();
-            player.Hp -= 1;
 
-            Player.AddReward(-1);
+            Player.AddReward(-1.2f);
+            Debug.Log("OUCH! " + Player.GetCumulativeReward());
             Player.EndEpisode();
-
-            Debug.Log("OUCH!");
         }
     }
 }

@@ -16,7 +16,6 @@ behaviors:
       learning_rate_schedule: linear
       num_epoch: 3    
 
-
     network_settings:
       vis_encode_type: simple
       num_layers: 2

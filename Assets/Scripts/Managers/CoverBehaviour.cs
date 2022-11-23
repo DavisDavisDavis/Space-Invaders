@@ -17,12 +17,6 @@ public class CoverBehaviour : MonoBehaviour
     {
         switch (hp)
         {
-            case 3:
-                gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
-                break;
-            case 2:
-                gameObject.GetComponent<Renderer>().material.color = new Color(100, 0, 0);
-                break;
             case 1:
                 gameObject.GetComponent<Renderer>().material.color = new Color(0, 100, 0);
                 break;

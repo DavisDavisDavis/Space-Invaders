@@ -81,7 +81,7 @@ public class SpawnManager : MonoBehaviour
             Destroy(enemy);
         }
 
-        SpawnEnemies(8, 5, new Vector3(-7, 0, 20));
+        SpawnEnemies(8, 5, new Vector3(-7, 0, 23));
     }
 
     public void ResetCovers()

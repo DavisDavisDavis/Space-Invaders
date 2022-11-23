@@ -53,10 +53,11 @@ public class Player : Agent
     {
         var action = act[0];
 
-        AddReward(-0.01f);
+        AddReward(-0.003f);
+
         if (action == 1 && Timer <= 0)
         {
-            bulletInner.speed = 7;
+            bulletInner.speed = 10;
             bulletInner.Enemy = false;
 
             Instantiate(bulletOuter, new Vector3(Position.x, Position.y, Position.z + 2), bulletOuter.transform.rotation);
