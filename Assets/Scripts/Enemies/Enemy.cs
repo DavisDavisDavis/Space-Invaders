@@ -50,7 +50,6 @@ public class Enemy : MonoBehaviour
             player.EndEpisode();
         }
 
-
         position.x += Time.deltaTime * speed * direction;
         transform.position = position;
     }

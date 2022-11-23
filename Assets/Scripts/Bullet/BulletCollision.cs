@@ -1,64 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.MLAgents;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class BulletCollision : MonoBehaviour
 {
-    ScoreManager ScoreText;
-    Bullet Bullet;
-    Player Player;
+    ScoreManager scoreText;
+    Bullet bullet;
+    Player player;
     SpawnManager spawnManager;
     int totalEnemies;
     // Start is called before the first frame update
     void Start()
     {
-        Bullet = gameObject.GetComponent<Bullet>();
-            
-        ScoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>();
-
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-
+        bullet = gameObject.GetComponent<Bullet>();
+        scoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         spawnManager = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!Bullet.Enemy)
+        if (!bullet.enemy)
         {
-            PlayerBullet(other);
+            PlayerShotBullet(other);
         }
-
-        if (Bullet.Enemy)
+        if (bullet.enemy)
         {
-            EnemyBullet(other);
+            EnemyShotBullet(other);
         }
 
         if (other.GetComponent<CoverBehaviour>())
         {
-            CoverBehaviour cover = (CoverBehaviour)other.GetComponent<CoverBehaviour>();
+            CoverBehaviour cover = other.GetComponent<CoverBehaviour>();
             cover.hp -= 1;
         }
 
         Destroy(gameObject);
     }
 
-    void PlayerBullet(Collider other)
+    void PlayerShotBullet(Collider other)
     {
         if (other.GetComponent<Enemy>())
         {
-            Enemy enemy = (Enemy)other.GetComponent<Enemy>();
-            ScoreText.UpdateHighScore(enemy.points);
+            Enemy enemy = other.GetComponent<Enemy>();
+            scoreText.UpdateHighScore(enemy.points);
             
-            Player.AddReward(0.1f);
+            player.AddReward(0.1f);
             Destroy(other.gameObject);
 
             spawnManager.totalNumberOfEnemies = spawnManager.totalNumberOfEnemies - 1;
@@ -66,8 +51,8 @@ public class BulletCollision : MonoBehaviour
             Debug.Log(spawnManager.totalNumberOfEnemies);
             if (0 >= spawnManager.totalNumberOfEnemies)
             {
-                Player.AddReward(1);
-                Player.EndEpisode();
+                player.AddReward(1);
+                player.EndEpisode();
 
                 Debug.Log("Won!!!");
             }
@@ -75,22 +60,21 @@ public class BulletCollision : MonoBehaviour
         }
         if (other.GetComponent<Ufo>())
         {
-            Ufo ufo = (Ufo)other.GetComponent<Ufo>();
-            ScoreText.UpdateHighScore(ufo.Points);
+            Ufo ufo = other.GetComponent<Ufo>();
+            scoreText.UpdateHighScore(ufo.Points);
 
-            Player.AddReward(0.08f);
+            player.AddReward(0.08f);
             Destroy(other.gameObject);
         }
     }
 
-    void EnemyBullet(Collider other)
+    void EnemyShotBullet(Collider other)
     {
         if (other.GetComponent<Player>())
         {
-
-            Player.AddReward(-1.2f);
-            Debug.Log("OUCH! " + Player.GetCumulativeReward());
-            Player.EndEpisode();
+            player.AddReward(-1.2f);
+            Debug.Log("OUCH! " + player.GetCumulativeReward());
+            player.EndEpisode();
         }
     }
 }

@@ -57,7 +57,7 @@ public class Player : Agent
         if (action == 1 && timer <= 0)
         {
             bulletInner.speed = 10;
-            bulletInner.Enemy = false;
+            bulletInner.enemy = false;
 
             Instantiate(bulletOuter, new Vector3(position.x, position.y, position.z + 2), bulletOuter.transform.rotation);
             timer = 0.7f;

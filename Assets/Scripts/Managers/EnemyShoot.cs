@@ -1,24 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class EnemyShoot : MonoBehaviour
 {
-    public GameObject BulletObject;
-    Bullet Bullet;
+    public GameObject outerBullet;
+    Bullet innerBullet;
     // Start is called before the first frame update
     void Start()
     {
-        Bullet = (Bullet)BulletObject.GetComponent<Bullet>();
+        innerBullet = outerBullet.GetComponent<Bullet>();
         InvokeRepeating("RandomShoot", 7, 3);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void RandomShoot()
@@ -28,18 +19,18 @@ public class EnemyShoot : MonoBehaviour
         Vector3 shootingPoint = frontRow[rnd].transform.position;
         shootingPoint.z = shootingPoint.z - 2;
 
-        Bullet.speed = -5;
-        Bullet.Enemy = true;
-        Instantiate(BulletObject, shootingPoint, BulletObject.transform.rotation);
+        innerBullet.speed = -5;
+        innerBullet.enemy = true;
+        Instantiate(outerBullet, shootingPoint, outerBullet.transform.rotation);
     }
 
     List<Enemy> GetFrontRow()
     {
-        GameObject[] Enemies;
-        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] enemies;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         int highestRowEnemy = 0;
-        foreach (var enemy in Enemies)
+        foreach (var enemy in enemies)
         {
             var enemyComponent = enemy.GetComponent<Enemy>();
 
@@ -50,7 +41,7 @@ public class EnemyShoot : MonoBehaviour
         }
 
         List<Enemy> frontRow = new List<Enemy>();
-        foreach (var enemy in Enemies)
+        foreach (var enemy in enemies)
         {
             var enemyComponent = enemy.GetComponent<Enemy>();
             if (highestRowEnemy == enemyComponent.rowNumber)
@@ -59,7 +50,6 @@ public class EnemyShoot : MonoBehaviour
             }
         }
 
-        //Returns which row is furtest forward.
         return frontRow;
     }
 }
