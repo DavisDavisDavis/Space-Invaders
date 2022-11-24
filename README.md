@@ -11,7 +11,7 @@ So to train the machine learning agent, firstly there are a few prerequisites. P
 
 Either way to train the AI start up the python API by entering ``mlagents-learn --time-scale=1 --run-id="Lets-Train-01`` from the TrainingConfig directory. Then just start the game and the agent will train and do its very best! 😇 
 
-> If you would like to make changes to the agent the important scripts would be ``Player.cs``, ``BulletCollision.cs`` and ``Enemy.cs``
+> If you would like to make changes to the agent the important scripts would be ``Player.cs``, ``BulletCollision.cs`` and ``Enemy.cs`` 🔧
 
 ### Playing the game 🎶
 You can of course play the game yourself as well! Just go to the player game object and inside of the Agent component change the Behaviour from ``Default`` to ``Hueristics``. Now you can play with the arrow keys to move and space bar to shoot. 😎
