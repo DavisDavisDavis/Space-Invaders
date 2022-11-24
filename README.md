@@ -5,7 +5,9 @@ Hello world! In this project I tried out Unity and implementing machine learning
 Just start the game and watch the AI play! I have made a few other models that can be tried out. Open the project via [Unity](unity.com/download) then inside the Unity editor click on the player game object and find the Agent component. The current model is ``The one`` but it can be easily changed.
 
 ### Lets train! ⚡️
-So to train the machine learning agent, first open up the project in [Unity](unity.com/download). Then install [Python](https://www.python.org/downloads/) and the [ml-agents]() python package. Following this [installation guide](https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Installation.md) is highly recommended. I know it is a lot of prerequisites but it will totally be worth it! Now start up the ml-agents python API by entering ``mlagents-learn --time-scale=1 --run-id="Lets-Train-01`` from the TrainingConfig directory. Then stat the game and the agent will start training. 😲 
+So to train the machine learning agent, firstly there are a few prerequisites. Python and the ml-agents packages needs to be installed so that you can run the ``mlagents-learn`` command. I highly recommend reading this [installation guide](https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Installation.md) if you would like to train the AI by yourself. 
+
+Either way to train the AI start up the python API by entering ``mlagents-learn --time-scale=1 --run-id="Lets-Train-01`` from the TrainingConfig directory. Then just start the game and the agent will train and do its very best! 😲 
 
 If you would like to make changes to the agent the important scripts would be ``Player.cs``, ``BulletCollision.cs`` and ``Enemy.cs``
 
