@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043b1431e8c11444380849f7c7acb48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outerBullet: {fileID: 3492886749422863966, guid: c9c796805e521b64ba45eb3e618f973f, type: 3}
+  outerBullet: {fileID: 3492886749422863966, guid: 71ee4adfd5aaa7a40a738d849133c804, type: 3}
 --- !u!4 &1077506029
 Transform:
   m_ObjectHideFlags: 0
@@ -825,7 +825,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 5022602860645237092, guid: aff057ffe593e944e8e5f14f2b25098d, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 1
   m_BehaviorName: Player
   TeamId: 0
   m_UseChildSensors: 1

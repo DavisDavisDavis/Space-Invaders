@@ -12,7 +12,7 @@ public class CoverBehaviour : MonoBehaviour
         switch (hp)
         {
             case 1:
-                gameObject.GetComponent<Renderer>().material.color = new Color(0, 100, 0);
+                gameObject.GetComponent<Renderer>().material.color = new Color(100, 0, 0);
                 break;
             case 0:
                 Destroy(gameObject);
