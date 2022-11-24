@@ -1,5 +1,5 @@
 # 👾 Space-Invaders 👾
-Hello world! In this project I tried out Unity and implementing machine learning to a game with the ml-agents framework! The game of choice being... Space Invaders! ✨ 
+Hello world! In this project I tried out [Unity](https://unity.com/pages/unity-pro-buy-now?ds_rl=1295837&gclid=CjwKCAiAyfybBhBKEiwAgtB7fm7x9Pt-VpRfCr2USuDxuxxqBiMYTYaZIgE4l8B_yjF5fWM-FJle0RoCbO8QAvD_BwE&gclsrc=aw.ds) and implementing machine learning to a game with the [ml-agents framework](https://github.com/Unity-Technologies/ml-agents)! The game of choice being... Space Invaders! ✨ 
 
 ### Starting the AI 😸
 Just start the game and watch the AI play! I have made a few other models that can be tried out. Open the project via [Unity](unity.com/download) then inside the Unity editor click on the player game object and find the Agent component. The current model is ``The one`` but it can be easily changed.
