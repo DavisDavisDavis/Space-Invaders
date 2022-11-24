@@ -7,7 +7,7 @@ Just start the game and watch the AI play! I have made a few other models that c
 ### Lets train! ⚡️
 So to train the machine learning agent, firstly there are a few prerequisites. Python and the ml-agents packages needs to be installed so that you can run the ``mlagents-learn`` command. I highly recommend reading this [installation guide](https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Installation.md) if you would like to train the AI by yourself. 
 
-Either way to train the AI start up the python API by entering ``mlagents-learn --time-scale=1 --run-id="Lets-Train-01`` from the TrainingConfig directory. Then just start the game and the agent will train and do its very best! 😲 
+Either way to train the AI start up the python API by entering ``mlagents-learn --time-scale=1 --run-id="Lets-Train-01`` from the TrainingConfig directory. Then just start the game and the agent will train and do its very best! 😇 
 
 If you would like to make changes to the agent the important scripts would be ``Player.cs``, ``BulletCollision.cs`` and ``Enemy.cs``
 
