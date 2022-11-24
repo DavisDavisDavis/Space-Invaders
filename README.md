@@ -54,8 +54,8 @@ You can of course play the game yourself as well! Just go to the player game obj
   - -0.003 for every bullet shot.
   - -1.0 if the enemies come too close.
   - -1.2 if the Agent comes in contact with an enemy bullet
-  - +0.1 for every enemy destroyed.
   - +0.08 for every ufo destroyed.
+  - +0.1 for every enemy destroyed.
   - +1.0 if all enemies are destroyed.
 - Behavior Parameters:
   - Vector Observation space: (Continuous) 70 variables corresponding to 20
