@@ -45,7 +45,8 @@ You can of course play the game yourself as well! Just go to the player game obj
 ░░░░░▄▀▄▄▀▄░░░░░░
 ░░░░▀░▀░░▀░▀░░░░░
 ░░░░░░░░░░░░░░░░░
-
+```
+### Agent properties 💽
 - Set-up: A shooter environment with enemies aproaching the agent.
 - Goal: The agent must destroy all enemies.
 - Agents: The environment contains one agent.
