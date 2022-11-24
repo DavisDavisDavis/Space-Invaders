@@ -58,8 +58,7 @@ You can of course play the game yourself as well! Just go to the player game obj
   - +0.1 for every enemy destroyed.
   - +1.0 if all enemies are destroyed.
 - Behavior Parameters:
-  - Vector Observation space: (Continuous) 70 variables corresponding to 20
-    ray-casts each detecting one of four possible objects (enemy, ufo, enemy bullet or
+  - Vector Observation space: 20 ray-casts each detecting one of four possible objects (enemy, ufo, enemy bullet or
     cover).
   - Actions: 2 discrete action branch with 3 actions, corresponding to shoot a bullet, move along one axis, or do nothing.
 - Float Properties: None
