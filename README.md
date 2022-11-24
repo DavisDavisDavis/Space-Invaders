@@ -45,3 +45,21 @@ You can of course play the game yourself as well! Just go to the player game obj
 ░░░░░▄▀▄▄▀▄░░░░░░
 ░░░░▀░▀░░▀░▀░░░░░
 ░░░░░░░░░░░░░░░░░
+
+- Set-up: A shooter environment with enemies aproaching the agent.
+- Goal: The agent must destroy all enemies.
+- Agents: The environment contains one agent.
+- Agent Reward Function:
+  - -0.003 for every bullet shot.
+  - -1.0 if the enemies come too close.
+  - -1.2 if the Agent comes in contact with an enemy bullet
+  - +0.1 for every enemy destroyed.
+  - +0.08 for every ufo destroyed.
+  - +1.0 if all enemies are destroyed.
+- Behavior Parameters:
+  - Vector Observation space: (Continuous) 70 variables corresponding to 20
+    ray-casts each detecting one of four possible objects (enemy, ufo, enemy bullet or
+    cover).
+  - Actions: 2 discrete action branch with 3 actions, corresponding to shoot a bullet, move along one axis, or do nothing.
+- Float Properties: None
+- Benchmark Mean Reward: -3.0
